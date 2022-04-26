@@ -12,31 +12,31 @@ namespace GameLibrary.SceneManagement
 	/// </summary>
 	public class SceneLoader : MonoBehaviour
 	{
-		[SerializeField] private SceneSO _gameplayScene = default;
+		[SerializeField] protected SceneSO _gameplayScene = default;
 
         [Header("Events/Listening to")]
-		[SerializeField] private SceneLoadEventChannelSO _loadLocation = default;
-		[SerializeField] private SceneLoadEventChannelSO _loadMenu = default;
+		[SerializeField] protected SceneLoadEventChannelSO _loadLocation = default;
+		[SerializeField] protected SceneLoadEventChannelSO _loadMenu = default;
 #if UNITY_EDITOR
-		[SerializeField] private SceneLoadEventChannelSO _coldStartupLocation = default;
+		[SerializeField] protected SceneLoadEventChannelSO _coldStartupLocation = default;
 #endif
 
 		[Header("Events/Broadcasting on")]
-		[SerializeField] private BoolEventChannelSO _toggleLoadingScreen = default;
-		[SerializeField] private VoidEventChannelSO _onSceneReady = default;
+		[SerializeField] protected BoolEventChannelSO _toggleLoadingScreen = default;
+		[SerializeField] protected VoidEventChannelSO _onSceneReady = default;
 
-		private AsyncOperationHandle<SceneInstance> _loadingOperationHandle;
-		private AsyncOperationHandle<SceneInstance> _gameplayManagerLoadingOpHandle;
+		protected AsyncOperationHandle<SceneInstance> _loadingOperationHandle;
+		protected AsyncOperationHandle<SceneInstance> _gameplayManagerLoadingOpHandle;
 
 		//Parameters coming from scene loading requests
-		private SceneSO _sceneToLoad;
-		private SceneSO _currentlyLoadedScene;
-		private bool _showLoadingScreen;
+		protected SceneSO _sceneToLoad;
+		protected SceneSO _currentlyLoadedScene;
+		protected bool _showLoadingScreen;
 
-		private SceneInstance _gameplayManagerSceneInstance = new SceneInstance();
-		private bool _isLoading = false; //To prevent a new loading request while already loading a new scene
+		protected SceneInstance _gameplayManagerSceneInstance = new SceneInstance();
+		protected bool _isLoading = false; //To prevent a new loading request while already loading a new scene
 
-		private void OnEnable()
+		protected virtual void OnEnable()
 		{
 			_loadLocation.OnLoadingRequested += LoadLocation;
 			_loadMenu.OnLoadingRequested += LoadMenu;
@@ -48,7 +48,7 @@ namespace GameLibrary.SceneManagement
 #endif
 		}
 
-		private void OnDisable()
+		protected virtual void OnDisable()
 		{
 			_loadLocation.OnLoadingRequested -= LoadLocation;
 			_loadMenu.OnLoadingRequested -= LoadMenu;
@@ -64,11 +64,11 @@ namespace GameLibrary.SceneManagement
 		/// <summary>
 		/// This special loading function is only used in the editor, when the developer presses Play in a Location scene, without passing by Initialisation.
 		/// </summary>
-		private void LocationColdStartup(SceneSO currentlyOpenedLocation, bool showLoadingScreen)
+		protected virtual void LocationColdStartup(SceneSO currentlyOpenedLocation, bool showLoadingScreen)
 		{
 			_currentlyLoadedScene = currentlyOpenedLocation;
 
-			if (_currentlyLoadedScene.sceneType == SceneSO.GameSceneType.Location)
+			if (_currentlyLoadedScene is LocationSO)
 			{
 				//Gameplay managers is loaded synchronously
 				_gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
@@ -83,7 +83,7 @@ namespace GameLibrary.SceneManagement
 		/// <summary>
 		/// This function loads the location scenes passed as array parameter
 		/// </summary>
-		private void LoadLocation(SceneSO locationToLoad, bool showLoadingScreen)
+		protected virtual void LoadLocation(SceneSO locationToLoad, bool showLoadingScreen)
 		{
 			//Prevent a double-loading, for situations where the player falls in two Exit colliders in one frame
 			if (_isLoading)
@@ -108,7 +108,7 @@ namespace GameLibrary.SceneManagement
 			}
 		}
 
-        private void OnGameplayManagersLoaded(AsyncOperationHandle<SceneInstance> obj)
+		protected void OnGameplayManagersLoaded(AsyncOperationHandle<SceneInstance> obj)
 		{
 			_gameplayManagerSceneInstance = _gameplayManagerLoadingOpHandle.Result;
 
@@ -118,7 +118,7 @@ namespace GameLibrary.SceneManagement
 		/// <summary>
 		/// Prepares to load the main menu scene, first removing the Gameplay scene in case the game is coming back from gameplay to menus.
 		/// </summary>
-		private void LoadMenu(SceneSO menuToLoad, bool showLoadingScreen)
+		protected virtual void LoadMenu(SceneSO menuToLoad, bool showLoadingScreen)
 		{
 			//Prevent a double-loading, for situations where the player falls in two Exit colliders in one frame
 			if (_isLoading)
@@ -141,7 +141,7 @@ namespace GameLibrary.SceneManagement
 		/// <summary>
 		/// In both Location and Menu loading, this function takes care of removing previously loaded scenes.
 		/// </summary>
-		private void UnloadPreviousScene()
+		protected virtual void UnloadPreviousScene()
 		{
 			if (_currentlyLoadedScene != null) //would be null if the game was started in Initialisation
 			{
@@ -167,7 +167,7 @@ namespace GameLibrary.SceneManagement
 		/// <summary>
 		/// Kicks off the asynchronous loading of a scene, either menu or Location.
 		/// </summary>
-		private void LoadNewScene()
+		protected virtual void LoadNewScene()
 		{
 			if (_showLoadingScreen)
 			{
@@ -178,7 +178,7 @@ namespace GameLibrary.SceneManagement
 			_loadingOperationHandle.Completed += OnNewSceneLoaded;
 		}
 
-		private void OnNewSceneLoaded(AsyncOperationHandle<SceneInstance> obj)
+		protected void OnNewSceneLoaded(AsyncOperationHandle<SceneInstance> obj)
 		{
 			//Save loaded scenes (to be unloaded at next load request)
 			_currentlyLoadedScene = _sceneToLoad;
@@ -197,15 +197,9 @@ namespace GameLibrary.SceneManagement
 			StartGameplay();
 		}
 
-		private void StartGameplay()
+		protected virtual void StartGameplay()
 		{
 			_onSceneReady.RaiseEvent(); // Spawn system will spawn the player in a gameplay scene
-		}
-
-		private void ExitGame()
-		{
-			Application.Quit();
-			Debug.Log("Exit!");
 		}
 	}
 }

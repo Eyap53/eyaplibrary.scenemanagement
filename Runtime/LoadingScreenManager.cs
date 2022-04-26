@@ -12,7 +12,7 @@ namespace GameLibrary.SceneManagement
 		[Header("Loading screen ")]
 		[SerializeField] private GameObject _loadingInterface;
 
-		private void OnEnable()
+		protected void OnEnable()
 		{
 			if (_toggleLoadingScreen != null)
 			{
@@ -20,7 +20,7 @@ namespace GameLibrary.SceneManagement
 			}
 		}
 
-		private void OnDisable()
+		protected void OnDisable()
 		{
 			if (_toggleLoadingScreen != null)
 			{

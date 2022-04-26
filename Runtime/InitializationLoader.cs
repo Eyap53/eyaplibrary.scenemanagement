@@ -13,13 +13,13 @@ namespace GameLibrary.SceneManagement
 
 	public class InitializationLoader : MonoBehaviour
 	{
-		[SerializeField] private SceneSO _persistentManagersSceneSO = default;
+		[SerializeField] private PersistentManagersSO _persistentManagersSceneSO = default;
 		[SerializeField] private SceneSO _mainSceneSO = default;
 
 		[Header("Broadcasting on")]
 		[SerializeField] private AssetReference _relatedLoadChannel = default;
 
-		private void Start()
+		protected void Start()
 		{
 			//Load the persistent managers scene
 			_persistentManagersSceneSO.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true).Completed += LoadEventChannel;

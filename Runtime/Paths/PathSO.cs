@@ -1,4 +1,4 @@
-namespace GameLibrary.SceneManagement
+namespace GameLibrary.SceneManagement.Paths
 {
 	using System.Collections;
 	using System.Collections.Generic;

@@ -1,4 +1,4 @@
-namespace GameLibrary.SceneManagement
+namespace GameLibrary.SceneManagement.Paths
 {
 	using GameLibrary.SOWorkflowCommon;
 	using UnityEngine;

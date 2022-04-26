@@ -20,7 +20,7 @@ namespace GameLibrary.SceneManagement
 		[Tooltip("You can use an event to trigger the request, or you can also reference the button directly.")]
 		[SerializeField] private VoidEventChannelSO _onRequestButtonChannelSO = default;
 
-		private void OnEnable()
+		protected void OnEnable()
 		{
 			if (_onRequestButtonChannelSO != null)
 			{
@@ -28,7 +28,7 @@ namespace GameLibrary.SceneManagement
 			}
 		}
 
-		private void OnDisable()
+		protected void OnDisable()
 		{
 			if (_onRequestButtonChannelSO != null)
 			{

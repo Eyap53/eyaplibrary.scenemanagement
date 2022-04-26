@@ -17,25 +17,18 @@ namespace GameLibrary.SceneManagement
 		[SerializeField] private SceneSO _persistentManagersSO = default;
 		[SerializeField] private AssetReference _coldStartupChannel = default;
 		[SerializeField] private VoidEventChannelSO _onSceneReadyChannelSO = default;
-		[SerializeField] private PathStorageSO _pathStorageSO = default;
 
 		private bool isColdStart = false;
 
-		private void Awake()
+		protected void Awake()
 		{
 			if (!SceneManager.GetSceneByName(_persistentManagersSO.sceneReference.editorAsset.name).isLoaded)
 			{
 				isColdStart = true;
-
-				if (_pathStorageSO != null)
-				{
-					//Reset the path taken, so the character will spawn in this location's default spawn point
-					_pathStorageSO.lastPathTaken = null;
-				}
 			}
 		}
 
-		private void Start()
+		protected void Start()
 		{
 			if (isColdStart)
 			{

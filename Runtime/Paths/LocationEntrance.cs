@@ -1,4 +1,4 @@
-namespace GameLibrary.SceneManagement
+namespace GameLibrary.SceneManagement.Paths
 {
 	// using Cinemachine;
 	using GameLibrary.SOWorkflowCommon.Events;
