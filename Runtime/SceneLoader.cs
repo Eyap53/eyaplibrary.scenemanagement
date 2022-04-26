@@ -12,9 +12,9 @@ namespace GameLibrary.SceneManagement
 	/// </summary>
 	public class SceneLoader : MonoBehaviour
 	{
-		[SerializeField] protected SceneSO _gameplayScene = default;
+		[SerializeField] protected GameplayManagersSO _gameplayScene = default;
 
-        [Header("Events/Listening to")]
+		[Header("Events/Listening to")]
 		[SerializeField] protected SceneLoadEventChannelSO _loadLocation = default;
 		[SerializeField] protected SceneLoadEventChannelSO _loadMenu = default;
 #if UNITY_EDITOR

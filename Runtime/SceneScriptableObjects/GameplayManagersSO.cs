@@ -8,5 +8,5 @@ namespace GameLibrary.SceneManagement
 
 	[CreateAssetMenu(fileName = "NewGameplayScene", menuName = "GameLibrary/Scene Management/Gameplay SO")]
 
-	public class GameplaySO : SceneSO { }
+	public class GameplayManagersSO : SceneSO { }
 }
