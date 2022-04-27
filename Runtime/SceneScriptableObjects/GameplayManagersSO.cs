@@ -6,7 +6,7 @@ namespace GameLibrary.SceneManagement
 	/// This class contains Settings specific to Gameplay scenes only
 	/// </summary>
 
-	[CreateAssetMenu(fileName = "NewGameplayScene", menuName = "GameLibrary/Scene Management/Gameplay SO")]
+	[CreateAssetMenu(fileName = "NewGameplayScene", menuName = "GameLibrary/Scene Management/Scene Data/Gameplay")]
 
 	public class GameplayManagersSO : SceneSO { }
 }
