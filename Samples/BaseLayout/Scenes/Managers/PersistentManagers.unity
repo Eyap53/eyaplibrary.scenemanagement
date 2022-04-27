@@ -152,12 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b928d1d6f59854499ed82bdeef2305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameplayScene: {fileID: 0}
-  _loadLocation: {fileID: 0}
-  _loadMenu: {fileID: 0}
-  _coldStartupLocation: {fileID: 0}
+  _gameplayScene: {fileID: 11400000, guid: 3b1d5b0c1829e7f47bffa78bcca08920, type: 2}
+  _loadLocation: {fileID: 11400000, guid: 9bf12dc549adeaa44a5028394c94c229, type: 2}
+  _loadMenu: {fileID: 11400000, guid: 73bcb866c1a3cec43b19bd001ee53f17, type: 2}
+  _coldStartupLocation: {fileID: 11400000, guid: 73bcb866c1a3cec43b19bd001ee53f17, type: 2}
   _toggleLoadingScreen: {fileID: 0}
-  _onSceneReady: {fileID: 0}
+  _onSceneReady: {fileID: 11400000, guid: f0eaa4eee18ec7641b1b93943ee7cbfa, type: 2}
 --- !u!4 &1794202499
 Transform:
   m_ObjectHideFlags: 0
