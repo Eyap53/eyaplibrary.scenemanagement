@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce52e8939f37b547903bc75a437cb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoad: {fileID: 0}
+  _sceneToLoad: {fileID: 11400000, guid: 44452af3db92ef945bbd1d5440be0e47, type: 2}
   _useLoadingScene: 1
   _sceneLoadEventChannelSO: {fileID: 11400000, guid: 9bf12dc549adeaa44a5028394c94c229, type: 2}
   _onRequestButtonChannelSO: {fileID: 0}
