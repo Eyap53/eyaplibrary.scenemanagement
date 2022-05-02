@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: SceneManagementsSOs
+  m_EditorClassIdentifier: 
+  m_GroupName: SceneManagementsSOs
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6122ff9c89dc55047830374fcb6aab6b
+  m_SerializeEntries:
+  - m_GUID: 4ba0b5cf247414647945a8e970649af6
+    m_Address: Packages/com.maellacour.gamelibrary.scenemanagement/Samples/BaseLayout/ScriptablesObjects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f74b63da93591d74d8c2f06c4ae3497a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 87d73cb3d0d08854a896b2990f18fc65, type: 2}
+    - {fileID: 11400000, guid: 0035ec0b101509649ab6c3b782d8e276, type: 2}
