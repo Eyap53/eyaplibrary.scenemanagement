@@ -9,6 +9,6 @@ namespace GameLibrary.SceneManagement.Paths
 	/// They don't have a direction, so the same path SO can be reused both ways, by referencing it in the appropriate <c>LocationEntrance</c> and <c>LocationExit</c> scripts in the scene.
 	/// </summary>
 
-	[CreateAssetMenu(fileName = "BetweenLocation1AndLocation2", menuName = "GameLibrary//SceneManagement/Path SO")]
+	[CreateAssetMenu(fileName = "BetweenLocation1AndLocation2", menuName = "GameLibrary/Scene Management/Paths/Path SO")]
 	public class PathSO : ScriptableObject { }
 }
