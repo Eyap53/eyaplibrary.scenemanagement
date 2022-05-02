@@ -95,12 +95,17 @@ namespace GameLibrary.SceneManagement
 			_showLoadingScreen = showLoadingScreen;
 			_isLoading = true;
 
+			if (_showLoadingScreen)
+			{
+				_toggleLoadingScreen.RaiseEvent(true);
+			}
+
 			//In case we are coming from the main menu, we need to load the Gameplay manager scene first
 			if (_gameplayManagerSceneInstance.Scene == null
 				|| !_gameplayManagerSceneInstance.Scene.isLoaded)
 			{
 				_gameplayManagerLoadingOpHandle = _gameplayScene.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
-                _gameplayManagerLoadingOpHandle.Completed += OnGameplayManagersLoaded;
+				_gameplayManagerLoadingOpHandle.Completed += OnGameplayManagersLoaded;
 			}
 			else
 			{
@@ -129,6 +134,11 @@ namespace GameLibrary.SceneManagement
 			_sceneToLoad = menuToLoad;
 			_showLoadingScreen = showLoadingScreen;
 			_isLoading = true;
+
+			if (_showLoadingScreen)
+			{
+				_toggleLoadingScreen.RaiseEvent(true);
+			}
 
 			//In case we are coming from a Location back to the main menu, we need to get rid of the persistent Gameplay manager scene
 			if (_gameplayManagerSceneInstance.Scene != null
@@ -169,11 +179,6 @@ namespace GameLibrary.SceneManagement
 		/// </summary>
 		protected virtual void LoadNewScene()
 		{
-			if (_showLoadingScreen)
-			{
-				_toggleLoadingScreen.RaiseEvent(true);
-			}
-
 			_loadingOperationHandle = _sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive, true, 0);
 			_loadingOperationHandle.Completed += OnNewSceneLoaded;
 		}
