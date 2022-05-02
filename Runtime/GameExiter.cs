@@ -5,7 +5,7 @@
 
 	public class GameExiter : MonoBehaviour
 	{
-		[Header("Optionnal")]
+		[Header("Optional")]
 		[SerializeField] private VoidEventChannelSO _onExitGameButton = default;
 
 		void OnEnable()
