@@ -8,7 +8,7 @@ namespace GameLibrary.SceneManagement
 	/// This class is used for scene-loading events.
 	/// Takes a GameSceneSO of the location or menu that needs to be loaded, and a bool to specify if a loading screen needs to display.
 	/// </summary>
-	[CreateAssetMenu(fileName = "SceneLoadEventChannelSO", menuName = "GameLibrary/Scene Management/Events/Scene Load Event Channel SO")]
+	[CreateAssetMenu(fileName = "SceneLoadEventChannel", menuName = "GameLibrary/Scene Management/Events/Scene Load Event Channel")]
 	public class SceneLoadEventChannelSO : EventChannelBaseSO
 	{
 		public UnityAction<SceneSO, bool> OnLoadingRequested;
