@@ -5,16 +5,23 @@
 
 	public class GameExiter : MonoBehaviour
 	{
+		[Header("Optionnal")]
 		[SerializeField] private VoidEventChannelSO _onExitGameButton = default;
 
 		void OnEnable()
 		{
-			_onExitGameButton.OnEventRaised += ExitGame;
+			if (_onExitGameButton != null)
+			{
+				_onExitGameButton.OnEventRaised += ExitGame;
+			}
 		}
 
 		void OnDisable()
 		{
-			_onExitGameButton.OnEventRaised -= ExitGame;
+			if (_onExitGameButton != null)
+			{
+				_onExitGameButton.OnEventRaised -= ExitGame;
+			}
 		}
 
 		public void ExitGame()
