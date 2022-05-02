@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4a9aff793e557d4790d9a834c6560bc, type: 3}
-  m_Name: GameplayManagers
+  m_Script: {fileID: 11500000, guid: 3546e1f9ebb6f054fb677b86f543542b, type: 3}
+  m_Name: MainMenu
   m_EditorClassIdentifier: 
-  _guid: 3b1d5b0c1829e7f47bffa78bcca08920
+  _guid: 5f640a99326365745b4b67a050601ba3
   _description: 
   sceneReference:
-    m_AssetGUID: 5c9361c3299d49e4d9d0596ce01c32e3
+    m_AssetGUID: 8a5936a5111f78b4682fea31707daf79
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

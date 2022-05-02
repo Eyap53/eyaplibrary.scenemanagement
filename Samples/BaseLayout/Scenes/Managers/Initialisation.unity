@@ -152,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43bf3a70578af0044a7af79dd1c44ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _persistentManagersSceneSO: {fileID: 0}
-  _mainSceneSO: {fileID: 0}
+  _persistentManagersSceneSO: {fileID: 11400000, guid: 554ba3b1a31c2fa44b78d968bb307e23, type: 2}
+  _mainSceneSO: {fileID: 11400000, guid: 5f640a99326365745b4b67a050601ba3, type: 2}
   _relatedLoadChannel:
-    m_AssetGUID: 
+    m_AssetGUID: 73bcb866c1a3cec43b19bd001ee53f17
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
