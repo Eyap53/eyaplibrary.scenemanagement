@@ -22,5 +22,12 @@
     "name": "Mael Lacour",
     "email": "public.dev@maellacour.com",
     "url": "https://maellacour.com"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Base Layout",
+      "description": "A base layout that you can use to quickly get started with the SceneManagement package.",
+      "path": "Samples~/BaseLayout"
+    }
+  ]
 }
