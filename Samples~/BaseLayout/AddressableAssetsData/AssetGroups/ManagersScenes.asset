@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: cad3e3db41b4ea5428913533e933fb3a
   m_SerializeEntries:
   - m_GUID: 514d6b55c26691c42a920e4d9afffa51
-    m_Address: Packages/com.maellacour.gamelibrary.scenemanagement/Samples/BaseLayout/Scenes/Managers
+    m_Address: Scenes/Managers
     m_ReadOnly: 0
     m_SerializedLabels: []
   m_ReadOnly: 0
