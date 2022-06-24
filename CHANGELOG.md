@@ -4,11 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.2] - 2022-06-24
+### Fixed
+- Sample: Fix Addressables references.
+
 ## [1.3.1] - 2022-05-02
-- Change Loading screen timing display
+### Fixed
+- Change Loading screen timing display.
 
 
 ## [1.3.0] - 2022-05-02
+### Added
 - Adding a base layout as a Sample, to help setup projects and to show how to use the package.
 
 
@@ -17,16 +23,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GameExiter to exit game.
 
 ### Changed
-- SceneLoadRequester can now register to event
+- SceneLoadRequester can now register to event.
 
 ### Fixed
-- Remove unused using directives
-- Fix small error when onplay with addressables
+- Remove unused using directives.
+- Fix small error when onplay with addressables.
 
 
 ## [1.1.1] - 2021-10-28
 ### Fix
-- Licensing stuff
+- Licensing stuff.
 
 
 ## [1.1.0] - 2021-10-28
