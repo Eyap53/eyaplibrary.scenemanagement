@@ -1,0 +1,22 @@
+{
+  "name": "com.maellacour.eyap-library.scenemanagement",
+  "version": "2.0.0",
+  "displayName": "EyapLibrary - Scene Management",
+  "description": "A library package to manage scenes using the ScriptableObjects (SO) workflow.",
+  "unity": "2020.1",
+  "unityRelease": "0f1",
+  "dependencies": {},
+  "keywords": [
+    "EyapLibrary",
+    "ScriptableObjects",
+    "Workflow",
+    "Scene"
+  ],
+  "license": "MPL-2.0",
+  "licensesUrl": "https://mozilla.org/MPL/2.0/",
+  "author": {
+    "name": "Mael Lacour",
+    "email": "public.dev@maellacour.com",
+    "url": "https://maellacour.com"
+  }
+}
