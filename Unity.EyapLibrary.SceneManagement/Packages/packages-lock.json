@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.maellacour.eyaplibrary.scenemanagement": {
-      "version": "file:eyaplibrary.scenemanagement",
+    "com.maellacour.eyap-library.scenemanagement": {
+      "version": "file:com.maellacour.eyap-library.scenemanagement",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
