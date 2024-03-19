@@ -1,7 +1,6 @@
 namespace EyapLibrary.SceneManagement
 {
 	using UnityEngine;
-	using EyapLibrary.SceneManagement;
 
 	public class GoToScene : MonoBehaviour
 	{

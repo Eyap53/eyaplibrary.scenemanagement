@@ -1,14 +1,21 @@
 {
   "dependencies": {
-    "com.maellacour.gamelibrary.scenemanagement": {
+    "com.maellacour.eyaplibrary.scenemanagement": {
       "version": "file:eyaplibrary.scenemanagement",
       "depth": 0,
       "source": "embedded",
+      "dependencies": {}
+    },
+    "com.maellacour.gamelibrary.scenemanagement": {
+      "version": "https://gitlab.com/Eyap/gamelibrary.scenemanagement.git",
+      "depth": 0,
+      "source": "git",
       "dependencies": {
         "com.maellacour.gamelibrary.soworkflowcommon": "1.2.0",
         "com.unity.addressables": "1.19.19",
         "com.unity.localization": "1.0.5"
-      }
+      },
+      "hash": "0406d57245de9ac5c48283620b5ad833ccacba77"
     },
     "com.maellacour.gamelibrary.soworkflowcommon": {
       "version": "https://gitlab.com/Eyap/gamelibrary.soworkflowcommon.git",

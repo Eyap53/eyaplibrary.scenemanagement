@@ -2,7 +2,7 @@ namespace EyapLibrary.SceneManagement
 {
 	using System;
 	using System.Linq;
-	using EyapLibrary.Utils;
+	using EyapLibrary.SceneManagement.Utils;
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
 
