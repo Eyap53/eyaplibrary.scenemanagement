@@ -4,10 +4,6 @@ namespace EyapLibrary.SceneManagement
 	using System.Collections.Generic;
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
-#if USE_NETCODE
-	using Unity.Netcode;
-	using Scene = UnityEngine.SceneManagement.Scene;
-#endif
 
 	/// <summary>
 	/// Script responsible to load the scene in the background.
@@ -19,11 +15,6 @@ namespace EyapLibrary.SceneManagement
 		/// Contains the currently loading scenes.
 		/// </summary>
 		public static HashSet<string> LoadingScenes { get; private set; } = new HashSet<string>();
-
-#if USE_NETCODE
-		public static List<string> _netcodeLoadedScenes = new List<string>();
-#endif
-
 
 		/// <summary>
 		/// Loads the additional scene if it is not already loaded.
@@ -45,41 +36,12 @@ namespace EyapLibrary.SceneManagement
 
 			// Implementation
 			LoadingScenes.Add(sceneName);
-#if USE_NETCODE
-			if (NetworkManager.Singleton != null && NetworkManager.Singleton.IsServer)
-			{
-				void sceneEventHandler(SceneEvent sceneEvent)
-				{
-					Debug.Log("SceneLoader: Scene event handler called.");
-					sceneEvent.AsyncOperation.completed += (AsyncOperation a) => OnSceneLoaded(sceneName);
-					if (sceneLoadedCallback != null)
-					{
-						sceneEvent.AsyncOperation.completed += (AsyncOperation a) => sceneLoadedCallback();
-					}
-				}
-
-				NetworkManager.Singleton.SceneManager.OnSceneEvent += sceneEventHandler;
-				SceneEventProgressStatus sceneEventProgressStatus = NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-				_netcodeLoadedScenes.Add(sceneName);
-				NetworkManager.Singleton.SceneManager.OnSceneEvent -= sceneEventHandler;
-			}
-			else
-			{
-				AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-				async.completed += (AsyncOperation a) => OnSceneLoaded(sceneName);
-				if (sceneLoadedCallback != null)
-				{
-					async.completed += (AsyncOperation a) => sceneLoadedCallback();
-				}
-			}
-#else
 			AsyncOperation async = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
 			async.completed += (AsyncOperation a) => OnSceneLoaded(sceneName);
 			if (sceneLoadedCallback != null)
 			{
 				async.completed += (AsyncOperation a) => sceneLoadedCallback();
 			}
-#endif
 			return true;
 		}
 
@@ -132,41 +94,6 @@ namespace EyapLibrary.SceneManagement
 
 			// Implementation
 			Debug.Log(string.Format("SceneLoader: Unloading scene {0}.", sceneName));
-
-#if USE_NETCODE
-			// Debug.Log($"SceneLoader: _netcodeLoadedScenes : {_netcodeLoadedScenes}, {_netcodeLoadedScenes.Contains(sceneName)}");
-			if (NetworkManager.Singleton != null && _netcodeLoadedScenes.Contains(sceneName))
-			{
-				void sceneEventHandler(SceneEvent sceneEvent)
-				{
-					Debug.Log("SceneLoader: Scene event handler called.");
-					sceneEvent.AsyncOperation.completed += (AsyncOperation a) => OnSceneUnloaded(sceneName);
-					if (sceneUnloadedCallback != null)
-					{
-						sceneEvent.AsyncOperation.completed += (AsyncOperation a) => sceneUnloadedCallback();
-					}
-				}
-
-				NetworkManager.Singleton.SceneManager.OnSceneEvent += sceneEventHandler;
-				SceneEventProgressStatus sceneEventProgressStatus = NetworkManager.Singleton.SceneManager.UnloadScene(scene);
-				NetworkManager.Singleton.SceneManager.OnSceneEvent -= sceneEventHandler;
-			}
-			else
-			{
-				// Debug.LogWarning("SceneLoader: Server not started.");
-				AsyncOperation async = SceneManager.UnloadSceneAsync(sceneName);
-				if (async == null)
-				{
-					Debug.LogWarning("SceneLoader: Scene not unloaded.");
-					return false;
-				}
-				async.completed += (AsyncOperation a) => OnSceneUnloaded(sceneName);
-				if (sceneUnloadedCallback != null)
-				{
-					async.completed += (AsyncOperation a) => sceneUnloadedCallback();
-				}
-			}
-#else
 			AsyncOperation async = SceneManager.UnloadSceneAsync(sceneName);
 			if (async == null)
 			{
@@ -178,7 +105,6 @@ namespace EyapLibrary.SceneManagement
 			{
 				async.completed += (AsyncOperation a) => sceneUnloadedCallback();
 			}
-#endif
 			return true;
 		}
 
