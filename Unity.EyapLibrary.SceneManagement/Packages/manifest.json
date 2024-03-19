@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "com.maellacour.gamelibrary.scenemanagement": "https://gitlab.com/Eyap/gamelibrary.scenemanagement.git",
-    "com.maellacour.gamelibrary.soworkflowcommon": "https://gitlab.com/Eyap/gamelibrary.soworkflowcommon.git",
     "com.unity.ai.navigation": "1.1.1",
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.inputsystem": "1.5.1",
