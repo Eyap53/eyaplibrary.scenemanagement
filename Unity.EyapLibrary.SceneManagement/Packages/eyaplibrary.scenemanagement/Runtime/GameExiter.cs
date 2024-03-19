@@ -1,29 +1,18 @@
-﻿namespace GameLibrary.SceneManagement
+namespace EyapLibrary.SceneManagement
 {
-	using GameLibrary.SOWorkflowCommon.Events;
 	using UnityEngine;
 
+	/// <summary>
+	/// Simple class to exit the game, in editor and in play.
+	/// </summary>
 	public class GameExiter : MonoBehaviour
 	{
-		[Header("Optional")]
-		[SerializeField] private VoidEventChannelSO _onExitGameButton = default;
-
-		void OnEnable()
-		{
-			if (_onExitGameButton != null)
-			{
-				_onExitGameButton.OnEventRaised += ExitGame;
-			}
-		}
-
-		void OnDisable()
-		{
-			if (_onExitGameButton != null)
-			{
-				_onExitGameButton.OnEventRaised -= ExitGame;
-			}
-		}
-
+		/// <summary>
+		/// Exits the game.
+		/// </summary>
+		/// <remarks>
+		/// This method is safe to call from the editor.
+		/// </remarks>
 		public void ExitGame()
 		{
 #if UNITY_EDITOR
@@ -33,3 +22,4 @@
 		}
 	}
 }
+
