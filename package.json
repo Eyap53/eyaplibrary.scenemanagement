@@ -1,6 +1,6 @@
 {
   "name": "com.maellacour.gamelibrary.scenemanagement",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "displayName": "Scene Management",
   "description": "A library package that contains common used scripts to build an app using the ScriptableObjects (SO) workflow",
   "unity": "2020.1",
